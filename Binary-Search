@@ -1,3 +1,4 @@
+//General implementation of binary search
 int binary_search (vector<int>&arr,int x,int n){
 	int l = 0 , r = n-1;
 	while(l<r){
@@ -11,3 +12,16 @@ int binary_search (vector<int>&arr,int x,int n){
 	}
 	if(arr[l]==x)return 1;return 0;
 }
+
+
+//Count the number of elements 
+auto l = lower_bound(arr.begin(),arr.end(),x);
+auto r = upper_bound(arr.begin(),arr.end(),x);
+cout<<r-l<<endl;
+
+
+//Shorter way to count the number of elements
+auto l  =  equal_range(arr.begin(),arr.end(),x);
+cout<<l.second-l.first<<endl;
+
+An important use for binary search is to find the position where the value of a function changes.
