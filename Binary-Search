@@ -1,17 +1,36 @@
 //General implementation of binary search
-int binary_search (vector<int>&arr,int x,int n){
-	int l = 0 , r = n-1;
-	while(l<r){
-		int mid = l + (r-l)/2;
-		if(arr[mid] == x)
-			return 1;
-		if(arr[mid] < x)
-			l = mid+1;
-		else
-			r = mid-1;
-	}
-	if(arr[l]==x)return 1;return 0;
+
+//LeftMost occurance of x or the number greater than x
+void search(vi &arr,int n,int x){
+    int l =0,r = n-1;
+    while(l<=r){
+        int m = (l+r)/2;
+        if(arr[m]>=x){
+            r = m-1;      
+        }
+        else{
+            l = m+1;
+        }
+    }
+    cout<<l<<endl;
 }
+
+//RightMost occurance of x or the number smaller than x
+void search(vi &arr,int n,int x){
+    int l =0,r = n-1;
+    while(l<=r){
+        int m = (l+r)/2;
+        if(arr[m]>x){
+            r = m-1;      
+        }
+        else{
+            l = m+1;
+        }
+    }
+    cout<<r<<endl;
+}
+
+
 
 
 //Count the number of elements 
@@ -24,4 +43,5 @@ cout<<r-l<<endl;
 auto l  =  equal_range(arr.begin(),arr.end(),x);
 cout<<l.second-l.first<<endl;
 
-An important use for binary search is to find the position where the value of a function changes.
+An important use of binary search is to find the position where the value of a function changes.
+An ordered set can be used to implement binary search, if the contraints are low. 
