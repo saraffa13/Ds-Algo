@@ -1,0 +1,66 @@
+Tree is a non-linear data structure that is used to store the value is such a way that it maintains the hierarchy between them.
+Binary search tree consists of a value and two pointers.
+Binary Search Tree is a variation of binary tree.
+Binary Heap is a variation of Binary tree.
+
+Some more applications of tree can be :
+  Trie - To implement dictionary
+         Prefix Search
+         Suffix Tree
+         Binary Index 
+         Segment Tree
+         
+ //==========================================================================================================================================
+Tree Representation - 
+  struct Node{
+      int value;
+      Node *left,*right;
+      Node(int a,Node *l=NULL,Node *r=NULL){
+          value=a;
+          left=l;
+          right=r;
+      }
+  }; 
+  
+  
+  //==========================================================================================================================================
+Tree Traversal - 
+  1. BFS(Level Order Traversal) - 
+  2. DFS - Left Node is always visited before right ones.
+           a. Inorder(l,Root,r)
+           b. PreOrder(Root,l,r)
+           c. PostOrder(l,r,Root)
+           
+                     
+           
+Implementation :
+1.Inorder Traversal     
+    void inorder(Node *root){
+        if(root==NULL)return;
+        inorder(root->left);
+        cout<<root->value<<endl;
+        inorder(root->right);
+    }
+    
+2. Preorder Traversal 
+    void Preorder(Node *root){
+        if(root==NULL)return;
+        cout<<root->value<<endl;
+        Preorder(root->left);
+        Postorder(root->right);
+    }
+    
+3. void Postorder(Node *root){
+        if(root==NULL)return;
+        Postorder(root->left);
+        Postorder(root->right);
+        cout<<root->value<<endl;
+    }
+    
+//==========================================================================================================================================
+
+    
+    
+
+        
+           
