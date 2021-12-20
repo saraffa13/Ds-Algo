@@ -1,0 +1,7 @@
+1.Size of a Tree - 
+    int getSize(Node* root){return root==NULL?0:1+getSize(root->left)+getSize(root->right);}
+2.Maximum in a Binary Tree - 
+    int maximum(Node *root){return root==NULL?INT_MIN:max({maximum(root->left),maximum(root->right),root->value});}
+3.Height of a Binary Tree - 
+
+    int height(Node* root){return root==NULL?0:max(height(root->left),height(root->right))+1;}
