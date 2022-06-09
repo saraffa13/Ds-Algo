@@ -1,0 +1,55 @@
+vi edges[150005];
+vi label(150005);
+vi sz(150005);
+vi nedges(150005);
+
+
+void relabel(int v, int target){
+    if(label[v]==target)return;
+
+    label[v] = target;
+    for(int x:edges[v]){
+        relabel(x,target);
+    }
+}
+
+
+
+void merge(int u, int v){
+    edges[u].push_back(v);
+    edges[v].push_back(u);
+
+    int cu = label[u],cv = label[v];
+
+    ++[nedges[cu]];
+    if(cu==cv)return ;
+
+
+    if(cu>cv){
+        swap(u,v);
+        swap(cv,cv);
+    }
+
+    relabel(u,v);
+
+    nedges[cv]+=nedges[cu];
+    sz[cv]+=sz[cu];
+    
+
+}
+
+
+void solve(){
+    int n I,m I;
+
+
+    rep(i,1,n+1){
+        sz[i] = 1;
+        label[i] =i;
+    }
+
+    rep(i,0,m){
+        int a I,b I;
+        merge(a,b);
+    }
+}

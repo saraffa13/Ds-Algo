@@ -23,7 +23,7 @@ Tree Representation -
   }; 
   
   
-  //==========================================================================================================================================
+//==========================================================================================================================================
 Tree Traversal - 
   1. BFS(Level Order Traversal) - 
   2. DFS - Left Node is always visited before right ones.
@@ -32,8 +32,9 @@ Tree Traversal -
            c. PostOrder(l,r,Root)
            
                      
-           
-Implementation :
+
+//==========================================================================================================================================
+Implementation (Recursive):
 1.Inorder Traversal     
     void inorder(Node *root){
         if(root==NULL)return;
@@ -58,6 +59,26 @@ Implementation :
     }
     
 //==========================================================================================================================================
+Implementation (Iterative):
+1.Inorder Traversal     
+    void inorder(Node *root){
+        
+    }
+
+2. Preorder Traversal 
+    void Preorder(Node *root){
+        if(root == NULL)return ;
+        stack<Node*>s;
+        s.push(root);
+        while(!s.emtpy()){
+            Node t = s.top();
+            s.pop();
+            cout<<t->data<<" ";
+            if(t->right)s.push(t->right);
+            if(t->left)s.push(t->left);
+        }
+        return ;
+    }
 
     
     

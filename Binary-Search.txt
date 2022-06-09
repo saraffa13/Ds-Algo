@@ -1,3 +1,7 @@
+// Important points to remember
+1.Plus one ya minus one kro agar condition satisfy nhi ho rha hai.
+
+
 //General implementation of binary search
 
 //LeftMost occurance of x or the number greater than x

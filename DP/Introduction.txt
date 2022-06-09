@@ -1,0 +1,6 @@
+It is used where optimal substructure is required and overlapping subproblems exists.
+Optimal substructure means the solution of similar problem with smaller constraint can be combined to solve the bigger problem.
+
+
+
+Ek index ko lo. baaki saare ke liye recursion kr do.

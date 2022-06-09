@@ -1,0 +1,30 @@
+int KN(int w,int wt[],int val[],int index, vector<vector<int>>&dp){
+    if(index == 0 || w == 0)return 0;
+    int x = 0;
+    if(dp[w][index-1]!=-1)return dp[w][index-1];
+    if(w>=wt[index-1]) x = val[index-1] + KN(w - wt[index-1],wt,val,index-1,dp);
+    int y = 0 + KN(w,wt,val,index-1,dp);
+    return dp[w][index-1]= max(x,y);
+}
+int knapSack(int w, int wt[], int val[], int n) 
+{ 
+    // memset()
+    vector<vector<int>>dp(n+1,vector<int>(w+1,-1));
+    
+    // return KN(w,wt,val,n,dp);
+    
+    for(int i=0;i<n+1;i++){dp[i][0] = 0;};
+    for(int i=0;i<w+1;i++){dp[0][i] = 0;};
+    for(int i=1;i<n+1;i++){
+        for(int j=1;j<w+1;j++){
+            if(wt[i-1]>j){
+                dp[i][j] = dp[i-1][j];
+            }else{
+                dp[i][j]=val[i-1] + dp[i-1][j-wt[i-1]];
+                dp[i][j]=max(dp[i][j],dp[i-1][j]);
+            }
+        }
+    }
+    return dp[n][w];
+    
+}
