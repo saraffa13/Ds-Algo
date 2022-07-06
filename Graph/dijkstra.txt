@@ -1,0 +1,26 @@
+void dijkstra(int u){
+    rep(i,0,n){
+        dist[i] = INT_MAX;
+    }
+    dist[u] = 0 ;
+    set<pair<int,int>>s;
+    s.insert({0,u});
+    while(!s.empty()){
+        int n = (s.begin())->second;
+        int dis = (s.begin())->first;
+        for(auto x:edges[n]){
+            int v = x.first;
+            int d = x.second;
+            if(dist[v]>dis+d){
+                auto x = s.find({dist[v],v});
+                if(x!=s.end()){
+                    s.erase(x);
+                }
+
+                s.insert({dis+d,v});
+                dist[v] = dis+d;
+            }
+        }
+        s.erase(s.begin());
+    }
+}

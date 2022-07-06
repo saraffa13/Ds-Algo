@@ -53,3 +53,31 @@ void solve(){
         merge(a,b);
     }
 }
+
+
+
+==============================================================================================================
+
+int parent[100005];
+int size[100005];
+void makeSet(){
+	rep(i,0,100005){
+		parent[i] = i;
+		size[i] = 1;
+	}
+}
+
+int findPar(int node){
+	if(node == parent[node])return node;
+	return parent[node]=findPar(parent[node]);
+}
+
+void Union(int u, int v){
+	u = parent[u];
+	v = parent[v];
+	if(u!=v){
+		if(size[u]<size[v])swap(u,v);
+		parent[v] = u;
+		size[u] += size[v];
+	}
+}

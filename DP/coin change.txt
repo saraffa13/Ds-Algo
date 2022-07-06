@@ -1,0 +1,46 @@
+version 1 - recursion
+
+long long check(vector<int> &coins,int i, int sum){
+        
+        if(sum == 0)return 0;
+        if(i==-1){
+            return INT_MAX;
+        }
+        if(dp[i][sum]!=-1)return dp[i][sum];
+        long long int y = INT_MAX;
+        long long int x = check(coins,i-1,sum);
+        if(coins[i]<=sum){
+            y = 1 + check(coins,i,sum-coins[i]);
+        }
+        return dp[i][sum]=min(x,y);
+        
+}
+//===========================================================================================================================================
+version 2  -recursion
+long long check(vector<int> &coins,int sum){
+        
+//         if(sum == 0)return 0;
+//         if(dp[sum]!=-1)return dp[sum];
+//         long long int xx = INT_MAX;
+//         for(auto x:coins){
+//             if(sum>=x){
+//                 xx = min(xx,1+check(coins,sum-x));
+//             }
+//         }
+//         return dp[sum] = xx;
+        
+//     }
+//===========================================================================================================================================
+
+
+dp[0]=0;
+for(int i=1;i<amount+1;i++){
+    dp[i] = INT_MAX;
+    for(auto x:coins){
+        if(x<=i){
+            dp[i] = min(dp[i],1+dp[i-x]);
+        }
+    }
+}
+if(dp[amount]==INT_MAX)return -1;
+return dp[amount];

@@ -6,6 +6,8 @@ int KN(int w,int wt[],int val[],int index, vector<vector<int>>&dp){
     int y = 0 + KN(w,wt,val,index-1,dp);
     return dp[w][index-1]= max(x,y);
 }
+
+
 int knapSack(int w, int wt[], int val[], int n) 
 { 
     // memset()
