@@ -1,0 +1,22 @@
+bool ok = true;
+vi edges[200001];
+vi vis(200001,0);
+vi color(200001,0);
+void dfs(int u){
+    vis[u] =1 ;
+    for(int x:edges[u]){
+        if(!vis[x]){
+            color[x] = 1-color[u];
+            dfs(x);
+        }else{
+            if(color[x] == color[u]){
+                ok = false;
+                return ;
+            }
+        }
+    }
+}
+
+
+bipartite - 
+    can detect if there are odd number of vertices in a cycle.
