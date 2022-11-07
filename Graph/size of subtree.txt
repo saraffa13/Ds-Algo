@@ -1,0 +1,9 @@
+int dfs(int v){
+    vis[v] = 1;
+    int curr_subtree_size=1;
+    for(auto x:edges[x]){
+        if(!vis[x])curr_subtree_size += dfs(x);
+    }
+    subtree[v] = curr_subtree_size;
+    return curr_subtree_size;
+} 

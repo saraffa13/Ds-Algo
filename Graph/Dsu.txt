@@ -59,11 +59,11 @@ void solve(){
 ==============================================================================================================
 
 int parent[100005];
-int size[100005];
+int sz[100005];
 void makeSet(){
 	rep(i,0,100005){
 		parent[i] = i;
-		size[i] = 1;
+		sz[i] = 1;
 	}
 }
 
@@ -76,8 +76,8 @@ void Union(int u, int v){
 	u = parent[u];
 	v = parent[v];
 	if(u!=v){
-		if(size[u]<size[v])swap(u,v);
+		if(sz[u]<sz[v])swap(u,v);
 		parent[v] = u;
-		size[u] += size[v];
+		sz[u] += sz[v];
 	}
 }

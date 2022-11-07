@@ -1,0 +1,26 @@
+diameter can be found by using the dfs twice.
+
+void dfs(int v,int d){
+    dist[v] = d;
+    for(auto x:edges[v]){
+        if(dist[x]==-1){
+            dfs(x,d+1);
+        }
+    }    
+}
+
+
+void solve(){
+    int n I;
+    rep(i,0,n-1){
+        int a I,b I;
+        edges[a].push_back(b);
+        edges[b].push_back(a);
+    }    
+
+    dfs(1,0);
+    int m = max_element(all(dist))-dist.begin();
+    fill(dist.begin(),dist.end(),-1);
+    dfs(m,0);
+    cout<<*max_element(all(dist))<<endl;
+}

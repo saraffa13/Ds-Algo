@@ -1,0 +1,11 @@
+int timer = 1;
+void dfs(int v){
+    vis[v] = 1;
+    inTime[v] = timer++;
+    for(auto x:edges[v]){
+        if(!vis[x]){
+            dfs(x);
+        }
+    }
+    outTime[v] = timer++;
+}

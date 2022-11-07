@@ -1,0 +1,2 @@
+tree - number of components = 1
+       number of edges = n-1

@@ -1,0 +1,107 @@
+void bubbleSort(vi &arr){
+    int n =arr.size();
+    int cnt = 0;
+    rep(i,0,n-1){
+        bool ok=true;
+        rep(j,0,n-i-1){
+            if(arr[j]>arr[j+1]){
+                swap(arr[j+1],arr[j]);
+                ok =false;
+            }        
+        }
+        cnt++;
+        if(ok)break;
+    }
+    cout<<cnt<<endl;
+    vprint(arr);
+}
+
+void selectionSort(vi &arr){
+    int n = arr.size();
+    int cnt = 0;
+    rep(i,0,n){
+        int index = i ;
+        rep(j,i+1,n){
+            if(arr[j]<arr[index]){
+                index = j;
+            }
+        }
+        if(index != i){
+            swap(arr[index],arr[i]);
+            cnt++;
+        }else{
+            break;
+        }
+    }
+    cout<<cnt<<endl;
+    vprint(arr);
+}
+
+void insertionSort(vi &arr){
+    int n = arr.size();
+    rep(i,0,n){
+        int key = arr[i];
+        int j = i-1;
+        while(j>=0&&arr[j]>key){
+            arr[j+1] = arr[j];
+            j--;
+        }
+        arr[j+1]=key;
+    }
+    vprint(arr);
+}
+void mergesort(vi &arr, int l, int m, int r){
+    int s1 = m-l+1;
+    int s2 = r-m;
+    int left[s1],right[s2];
+    int c = 0;
+    rep(i,l,m+1){
+        left[c++]=arr[i];
+    }
+    c=0;
+    rep(i,m+1,r+1){
+        right[c++]=arr[i];
+    }
+    int x = 0 , y = 0,k=l;
+    while(x<s1&&y<s2){
+        if(left[x]<right[y]){
+            arr[k++]=left[x++];
+        }else{
+            arr[k++]=right[y++];
+        }
+    }
+    while(x<s1){
+        arr[k++] = left[x++];
+    }
+    while(y<s2){
+        arr[k++] = right[y++];
+    }
+}
+void merge(vi &arr, int l, int r){
+    if(r>l){
+        int m = (r+l)/2;
+        merge(arr,l,m);
+        merge(arr,m+1,r);
+        mergesort(arr,l,m,r);
+    }
+}
+
+int partition(vi &arr, int start, int end){
+    int i = start-1;
+    int pivot = arr[end];
+    rep(j,start,end){
+        if(arr[j]<pivot){
+            i++;
+            swap(arr[i],arr[j]);
+        }
+    }
+    swap(arr[i+1],arr[end]);
+    return i+1;
+}
+void quickSort(vi &arr, int l, int r){
+    if(l<r){
+        int p = partition(arr,l,r);
+        quickSort(arr,l,p-1);
+        quickSort(arr,p+1,r);
+    }
+}

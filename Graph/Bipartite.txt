@@ -17,6 +17,23 @@ void dfs(int u){
     }
 }
 
+algorithm 2 :
+
+bool dfs(int u, int c){
+    vis[u] =1 ;
+    color[v] = c;
+    for(int x:edges[u]){
+        if(!vis[x]){
+            if(dfs(x,1^c) == false)return false;
+        }else{
+            if(color[x] == color[u]){
+                return false;
+            }
+        }
+    }
+    return true;
+}
+
 
 bipartite - 
     can detect if there are odd number of vertices in a cycle.

@@ -1,0 +1,18 @@
+Data Structure - It is a way to arrange data in certain fashion such that performing different operations on data becomes very easy and efficient.
+                 These operations may include insert, sort, search, update and delete.
+Types of Data Structure - 
+                 i. Primitive Data-Structure - Primitve Data Structure is Primitive Data-Types.
+                 ii.Non-Primitive Data-Structure - 
+                    It is of two types
+                     a.Linear - Arrangement of data in sequential fashion or Where the data is arrange in such a way that when we start traversing the data then only one data comes next to a particular data.
+                     b.Non-Linear-Datas are arranged in hierarchical function where one element is connected to n-number of other elements.
+                    
+                a. Static DS - Where size is determined at compile time.
+                b. Non-Static DS - Where size is determined at Run time.
+
+                Abstract-Data Types - Data types which only mentions what operations are to be performed and not how these operations are internally implemented. It doesn't specify how these data are arranged in the memory and what algorithms are used to implement the operations.
+                
+                It is called Abstract because it gives implementation independent view.
+
+
+                
