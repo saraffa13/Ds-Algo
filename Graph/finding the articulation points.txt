@@ -1,0 +1,26 @@
+articulation points - It is also known as cut vertex. 
+                      Articulation points lies at the end of the bridges iff the node has degree greater than 2.
+                      Articulation points doesn't need to lie at the end points of bridges only.
+                      Articulation points can be find out using that same algo of finding the bridge.
+
+void dfs(int v, int p=-1){
+    vis[v] = 1;
+    inTime[v] = lowTime[v] = timer++;
+    int children=0;
+    for(auto &x:edges[v]){
+        if(x == p)continue;
+        else if(vis[x]){
+            lowTime[v] = min(lowTime[v],inTime[x]);
+        }else{
+            dfs(x,v);
+            lowTime[v] = min(lowTime[v],lowTime[x]);
+            if(lowTime[x]>=inTime[v]&&p!=-1){
+                isCutpoint(v);
+            }
+            children++;
+        }
+    }
+    if(p == -1 && children>1){
+        isCutpoint(v);
+    }
+}

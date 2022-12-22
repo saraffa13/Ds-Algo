@@ -1,0 +1,49 @@
+vector<int> edges[100005];
+vector<int>edgesT[100005];
+
+
+void dfs(int v){
+    vis[v] = 1;
+    for(auto x:edges[v]){
+        if(!vis[x]){
+            dfs(x);
+        }
+    }
+
+    order.push_back(v);
+}
+
+void dfs1(int v){
+    vis[v] = 1;
+    ssc.push_back(v);
+    for(auto x:edgesT[v]){
+        if(!vis[x]){
+            dfs1(x);
+        }
+    }
+}
+
+
+
+int main(){
+    
+    for(int i=1;i<=n;i++){
+        if(!vis[i])dfs(i);
+    }
+
+    memset(vis,0,sizeof vis);
+    for(int i=order.size()-1;i>=0;i--){
+        if(!vis[order[i]]){
+            
+            ssc.clear();
+            dfs1(order[i]);
+            cout<<" dfs called from "<<i<<" and strongly connected components are "<<endl;
+
+            for(auto x:ssc){
+                cout<<x<<" ";
+            }
+
+            cout<<endl;
+        }
+    }
+}

@@ -1,0 +1,25 @@
+vi edges[100005];
+bool vis[100005];
+
+
+int timer = 0;
+int inTime[100005];
+int lowTime[100005];
+
+void dfs(int v, int p=1){
+    vis[v] = 1;
+    inTime[v]= lowTime[v] = timer ++; 
+    for(auto x:edges[v]){
+        if(x == p)continue;
+        else if(vis[x]){
+            lowTime[v] = min(lowTime[v],inTime[x]);
+        }else{
+            dfs(x,v);
+            if(lowTime[x]>inTime[v]){
+                cout<<v<<"->"<<x<<endl;
+            }
+            lowTime[v] = min(lowTime[v],lowTime[x]);
+        }
+    }
+}
+

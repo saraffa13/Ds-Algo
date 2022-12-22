@@ -73,8 +73,8 @@ int findPar(int node){
 }
 
 void Union(int u, int v){
-	u = parent[u];
-	v = parent[v];
+	u = findPar(u);
+	v = findPar(v);
 	if(u!=v){
 		if(sz[u]<sz[v])swap(u,v);
 		parent[v] = u;

@@ -1,0 +1,19 @@
+bfs:
+    time complexity - O(v+e) same for dfs too
+
+void bfs(int n){
+    bool vis[100005];
+    queue<pair<int,int>>q;
+    q.push_back({n,0});
+    vis[n] = 1;
+    while(!q.empty()){
+        int v = q.front().first;
+        int d = q.front().second;
+        for(auto x:edges[v]){
+            if(!vis[x]){
+                q.push({x,d+1});
+                vis[x] = 1;
+            }
+        }
+    }
+}

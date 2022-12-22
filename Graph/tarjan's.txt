@@ -1,0 +1,40 @@
+vi edges[100005];
+bool onStack[100005];
+bool vis[100005];
+int lowLink[100005],inTime[100005],timer=0,ssc=0;
+
+stack<int>st;
+
+void dfs(int v){
+  vis[v]=1;
+  inTime[v] = lowLink[v] = timer ++;  
+  onStack[v] = 1;
+  st.push(v);
+
+
+  for(auto x:edges[v]){
+    if(vis[x] && onStack[x]){
+      lowLink[v] = min(lowLink[v],inTime[x]);
+    }
+    else if(!vis[x]){
+      dfs(x);
+      if(onStack[x]){
+        lowLink[v] = min(lowLink[x],lowLink[v]);
+      }
+    }
+  }
+
+  if(inTime[v] == lowLink[v]){
+    ssc++;
+    cout<<"ssc #"<<ssc<<endl;
+    while(1){
+      int x=st.top();
+      st.pop();
+      onStack[x] = 0;
+      cout<<x<<" ";
+      if(x == v)break;
+    }
+    cout<<endl;
+  }
+  
+}

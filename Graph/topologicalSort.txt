@@ -1,4 +1,10 @@
 Type 1 : TOPOSORT
+        O(v+e)
+
+
+        concept - each time we choose a node whose indegree is 0 and add it to the ans, and remove all the edges going out from that node.
+                  If cycle is present than topological sort doesn't exists for that graph.
+
 vector<int>ind(n);
 vector<vector<int>>edges(n);
 for(int i=0;i<arr.size();i++){
@@ -30,7 +36,10 @@ return res;
 
 
 ======================================================================================================
+
+
 Type 2 :TOPOSORT
+
 vector<int>ind(n);
 vector<vector<int>>edges(n);
 for(int i=0;i<arr.size();i++){
@@ -53,3 +62,21 @@ while(!q.empty()){
 }
 if(res.size() != n)res.clear();
 return res;
+
+
+
+void bfs(int v){
+    queue<int>q;
+    for(int i=1;i<=n;i++){
+        if(indegree[i] == 0)q.push(i);
+    }
+
+    while(!q.empty()){
+        int f = q.front();q.pop();
+        res.push_back(f);
+        for(auto x:edges[f]){
+            indegree[x]--;
+            if(indegree[x] == 0)q.push(x);
+        }
+    }
+}

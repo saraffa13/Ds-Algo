@@ -1,0 +1,14 @@
+bool dfs(int v, int p){
+    temp.push_back(v);
+    vis[v] = 1;
+    for(auto x:edges[v]){
+        if(!vis[x]){
+            if(dfs(x,v))return true;
+        }else if(p!=x){
+            temp.push_back(x);
+            return true;
+        }
+    }
+
+    temp.pop_back();
+}

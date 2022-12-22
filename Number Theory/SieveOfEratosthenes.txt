@@ -1,0 +1,12 @@
+time complexity : n*log(log(n));
+bool prime[1001];
+void sieve(){
+	memset(prime,1,sizeof prime);
+    for(int i=2;i*i<1001;i++){
+        if(prime[i]){
+            for(int j=i*i;j<1001;j+=i){
+                prime[j] = 0;
+            }
+        }
+    }
+}
