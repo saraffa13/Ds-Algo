@@ -1,0 +1,24 @@
+void binaryExponentiation(int a, int n){
+    if(n == 0)return 1;
+    int res = 1 ;
+    while(n){
+        if(n%2){
+            res *= a;
+        a *= a;
+        n>>=1;
+    }
+    return res;
+}
+
+void binaryExponentiationMod(int a, int n, int m){
+    if(n == 0)return 1;
+    a%=m;
+    int res = 1 ;
+    while(n){
+        if(n%2){
+            res = (res * a)%m;
+        a=(a*a)%m;
+        n>>=1;
+    }
+    return res;
+}

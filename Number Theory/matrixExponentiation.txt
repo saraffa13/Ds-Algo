@@ -1,0 +1,71 @@
+#include<bits/stdc++.h>
+using namespace std;
+const int size=100;
+int A[size][size],I[size][size];
+
+void mul(int A[][size], int B[][size], int dim){
+
+  int res[dim+1][dim+1];
+  for(int i=0;i<dim;i++){
+    for(int j=0;j<dim;j++){
+      res[i][j] = 0;
+      for(int k=0;k<dim;k++){
+        res[i][j] += A[i][k]*B[k][j];
+      }
+    }
+  }
+
+  for(int i=0;i<dim;i++){
+    for(int j=0;j<dim;j++){
+      A[i][j] = res[i][j];
+    }
+  }
+
+}
+
+void power(int A[][size],int n, int dim){
+
+  for(int i = 0;i<dim;i++){
+    for(int j = 0;j<dim;j++){
+      if(i == j){
+        I[i][j] = 1;
+      }else{
+        I[i][j] = 0;
+      }
+    }
+  }
+
+  while(n){
+    if(n%2)
+      mul(I,A,dim);
+    mul(A,A,dim);
+    n>>=1;
+  }
+
+  for(int i=0;i<dim;i++){
+    for(int j=0;j<dim;j++){
+      A[i][j] = I[i][j];
+    }
+  }
+
+}
+
+
+int main (){
+  int dim;cin>>dim;
+  int n;cin>>n;
+
+  for(int i=0;i<dim;i++){
+    for(int j=0;j<dim;j++){
+      cin>>A[i][j];
+    }
+  }
+
+  power(A,n,dim);
+  for(int i=0;i<dim;i++){
+    for(int j=0;j<dim;j++){
+      cout<<A[i][j]<<" ";
+    }
+    cout<<endl;
+  }
+}

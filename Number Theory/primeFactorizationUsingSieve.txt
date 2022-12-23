@@ -1,0 +1,13 @@
+void factorizationSieve(){
+    int prime[1000001];
+    memset(prime,-1,sizeof prime);
+    for(int i=2;i<1000001;i++){
+        if(prime[i] == -1){
+            for(int j = i;j<1000001;j+=i){
+                if(prime[j] == -1){
+                    prime[j] = i;
+                }
+            }
+        }
+    }
+}
