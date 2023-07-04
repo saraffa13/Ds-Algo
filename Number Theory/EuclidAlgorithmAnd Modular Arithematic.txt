@@ -1,0 +1,48 @@
+1. (A + B) %Mod = ((A%Mod) + (B%Mod))%Mod;
+2. (A - B) %Mod = ((A%Mod) - (B%Mod))%Mod;
+3. (A * B) %Mod = ((A%Mod) * (B%Mod))%Mod;
+
+4.O(log (max(a,b))) 
+int gcd(int a, int b){
+    if(b == 0)return a;
+    return gcd(b,a%b); 
+}
+
+
+5. Additive Modulo Inverse
+   A is modulo inverse to b with respect to some number N if and only if A and B gives the same remainder when divided by N.
+   hence, (A-B) will be divisible by N.
+          
+   Vice versa, If X is divisible by N then we can write X as a difference of two numbers and those two number will be modulo inverse 
+   each other with respect to N.
+6. Multiplicative Modulo Inverse
+   A*B = C 
+   then (A%N) * (B%N) .-. C%N
+
+7. Check whether the number is divisible by 3 and 9 or not
+   sum of the digits must be divisible by 3 or 9
+
+8. If A and B are congruent to each other  with respect to N than 
+    (A^k) is also congurent to (B^k)
+
+    If we have to find out (A^K) % N then we can also find out (B^k)%N if A and B are congruent to each other.
+
+    (1024%3) = (1+2+4)%3
+
+9. Modulo Multiplicative Inverse :- 
+    (A/B)%N = (A%N * C%N) %N  {where, B and C and modulo Multiplicative inverse of each other}
+                              which means( B*C )%N = 1
+
+               does modulo Multiplicative inverse exists for every number -  the answer is no 
+                              Multiplicative inverse of B under N only exists iff gcd (B,N) = 1, or B and N are co-prime.
+
+   
+   Modulo Multiplicative Inverse :-
+   int MultiplicativeInverse(int a, int m){
+      return binPowMod(a,m-2,m);
+   }
+
+   m should be prime and (a,m) must be coprime.
+
+
+   

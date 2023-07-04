@@ -1,0 +1,178 @@
+High-Level
+Interpreted
+Object-Oriented
+
+10*'Shivam'
+r'Shivam'
+
+_ is the output of the previous operation.
+
+
+1.name = 'youtube'
+    name[0]  /y
+    name[-1] /e
+    name[0:2] /yo
+    name[1:4] /out
+    name[1:] /outube
+    name[:4] /yout
+    name[1:10] /outube   **no error
+
+    once you assign the value you cant change it.
+    string is immutable in python
+
+    len(name) /7
+
+2.lists in python 
+    collection of data of non-homogeneous types.
+    names=[2,'Shivam',3]
+    list has certain function and these are also immutable
+
+    names.insert(index,value to be inserted)
+    names.remove(value to be removed)
+    name.pop(index_number to be removed)
+    name.pop() **last element is removed
+    del name[2:]   **deleted all the elements from 2
+    nums.extend([3,4,5,6])
+    min(nums)
+    max(nums)
+    sum(nums)
+    sort(nums)
+
+3.Tuple in python
+    name = (2,'Shivam',32)
+    immutable
+    same as list
+
+4.Sets in python
+    name = {2,'Shivam',32}
+
+4.Sets in Dictionary
+    name = {1:'Shivam',2:'Rahul',4:'Mohan'}
+
+    print(name[1]) /Shivam
+    print(name[3]) /error
+    print(name.get(3)) /no error
+
+    name = ['Shivam','Abhinav','Tiwari']
+    language = ['C++','Java','JS']
+
+    data = dict(zip(name,language))
+    
+    ** can add data easily : data['ram'] = 'CS'
+    ** del data['Abhinav']
+
+
+5.Variables : 
+    num = 3
+        id(num)
+    
+    num2 = 3
+        id(num)
+
+    num = num2 
+        (now the address of num and num2 becomes same)
+
+    The address is linked to value and not the name of the variable 
+        a = 3
+        b = 3
+        address of a and b is same
+        b = 5
+        address of b changes
+        a=8
+        address of a also changes now
+        **We cant make a variable constant in python    
+        ** type(a) /tells us what is the type of a
+
+6.DATA TYPES :
+    None - If we have any variable and no value is assigned then the data type of the variable in none.
+    Numeric - 
+        int 
+        float   
+        complex - 
+            n = 4+5j
+            c = complex(a,b)
+        bool 
+    Sequence
+    *  List 
+    *  Tuple
+    *  Set
+    *  String 
+    *  Range - range(2,10) ->2,3,4,5,6,7,8,9
+            range(2,10,2) ->2,4,6,8
+
+    Dictionary
+        d.keys()
+        d.values()
+
+7.OPERATORS
+    Arithematic
+    Assignment
+    Relational
+    Logical - And, Or, Not
+
+8.NUMBER SYSTEMS
+    bin()
+    oct()
+    hex()
+9.SWAP VARIABLES 
+    a = a+b
+    b = a-b
+    a = a-b 
+    or 
+    a = a^b
+    b = a^b
+    a = a^b 
+    or 
+    a,b=b,a
+
+10. BITWISE OPERATORS
+    Negative numbers are stored as two's compliment of positive numbers.
+    compliment
+    And 
+    Or 
+    Xor
+    left-shift
+    right-shift
+11.IMPORTING MODULES
+    import math
+    x=math.sqrt(25)
+
+    print(x) /5.0
+    math.pow(3,2)
+    math.pi()
+    math.e()
+
+    import math as m
+    m.pow(3,2)
+    m.pi()
+    m.e()
+    **import specific functions
+    from math import sqrt,pow
+
+12.USER INPUT
+    a = input('Enter a number') /Takes input as string
+    b = int(input('Enter a number)) /Takes input as string and converts it to integer
+    **eval(string) /evaluates the expression
+
+    argv (index 0 is filename)
+
+    import sys  
+    sys.argv[1]
+
+13.
+    if 5>0:
+        print("YES")
+    elif(5==5):
+        print("NO")
+14.
+    i=1
+    while i<=5:
+        print("Hello")
+        i+=1
+15.
+    name=['shivam','chulli','bittu']
+    for i in name:
+        print(i)
+    for i in range(10)
+        print(i)
+16.BREAK, CONTINUE, PASS - used for passing out of empty block

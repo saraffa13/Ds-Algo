@@ -1,0 +1,11 @@
+Two numbers are coprime than their GCD is 1.
+
+Example 3: For a, b, A, B ∈ Z and m ∈ Z>1
+, if a ≡ A (mod m) and b ≡ B (mod m), prove each
+of the following.
+• a + b ≡ A + B (mod m)
+• ab ≡ AB (mod m)
+• a^n ≡ A^n (mod m) for n ∈ Z≥0
+
+
+GCD(x,y) = GCD(x-y,y)

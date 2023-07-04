@@ -1,0 +1,21 @@
+int F[1000000];
+void init (){  
+  F[0] = F[1] = 1;
+  for(int i=2;i<=1000000;i++){
+    F[i] = (F[i-1] * i)%MOD;
+  } 
+}
+
+int CC(int n , int k){
+  if(k>n)return 0;
+  
+  int res = F[n];
+  res = (res * binpowMOD(F[k],MOD-2,MOD))%MOD;
+  res = (res * binpowMOD(F[n-k],MOD-2,MOD))%MOD;
+  return res;
+
+}
+void solve(){
+  int n I,k I;
+  cout<<CC(n,k)<<endl;
+}
