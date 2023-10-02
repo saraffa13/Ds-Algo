@@ -1,0 +1,24 @@
+struct edge{
+    int a,b,d;
+};
+
+void bellmanford(){
+    int n,m;cin>>n>>m;  
+    vector<int>dist(100005,1e15);
+    vector<edge>edges(m);
+    for(int i=0;i<m;i++){
+        int a,b,d;
+        cin>>a>>b>>d;
+        edges[i]={a,b,d};
+    }
+
+
+    dist[1]=0;
+    for(int i=0;i<n-1;i++){
+        for(int j=0;j<m;j++){
+            if(dist[edges[j].a]!=1e15){
+                dist[edges[j].b]=min(dist[edges[j].b],edges[j].d+dist[edges[j].a]);
+            }
+        }
+    }
+}

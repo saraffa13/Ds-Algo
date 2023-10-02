@@ -1,0 +1,67 @@
+Hardware -> OS -> Java virtual machine(JVM) 
+JAVAC compiles the source code into binary one.
+JVM - runs the java binary code
+
+Java is platform independent but any platform that needs to run java must have JVM and JVM is platform dependent.
+
+JDK ->(JRE) 
+        to run a java code on a machine it needs to have JRE and JDK is only required for development purpose.
+        JRE contains (JVM + class libraries )
+
+
+Data Type - Primitive
+            1.Integer - byte, short, int, long (1,2,4,8) range = -2^7 -> 2^7-1
+                put l after long
+            2.Float - float, double
+                 (4,8) put f after float
+            3.Char - 2bytes
+            4.Boolean - 1byte (true, false)
+                boolean
+
+Literals = Literals are data used for representing fixed values
+
+Type Promotion - When we perform certain operations lets say multiply two integer which are in byte so the result may not be in byte and it gets coverted to integer or any higher data types
+
+Operators - 
+    1.Assignment Operators
+    2.Relational
+    3.Logical - combine two relational Opertaors
+
+Conditional Statements - 
+
+
+
+Stack and heap in java - 
+Every method has its own stack. 
+Stack is linked to heap by reference variable.
+
+Array - It is an object and is created inside the heap memory .
+    fixed size and searching is slower.
+int arr[] = { 1,4,5};
+int arr[]=new int [3];
+
+int arr[][] = new int [4][5];
+
+for(int ar:arr){
+    System.out.print(ar);
+}
+
+
+Jagged array -  
+int arr[][]=new int[4][];
+arr[0]=new int[3];
+arr[1]=new int[5];
+arr[2]=new int[6];
+
+
+String Constant pool - same string literal has the same referece value.
+
+StringBuffer is used for immutable string;
+StringBuilder0 is used for immutable string;
+
+Static variable - It is shared by all the objects and hence it should be called by class name directly.
+
+**Static block - 
+    It is called only once and that also at the time of class loading. Contructors are called at the time of object creation.
+    So, when we call the constructor then only class loading happens, but we can also load the class using Class.forname("") method to load the class. 
+**don't use non-static data member inside a static method but you can pass the obj and then use it.

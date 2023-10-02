@@ -81,3 +81,41 @@ void Union(int u, int v){
 		sz[u] += sz[v];
 	}
 }
+
+
+
+==========================================================================================================
+struct DSU{
+    
+    vi par,sz;
+    
+    DSU(int n){
+        par.resize(n+1);
+        sz.resize(n+1);
+        rep(i,1,n+1){
+            par[i]=i;
+            sz[i]=1;
+        }
+    }
+
+    bool sameSet(int a, int b){
+        return findPar(a)==findPar(b);
+    }
+
+    int findPar(int a){
+        if(a == par[a])return a;
+        return par[a]=findPar(par[a]);
+    }
+    bool Union(int a, int b){
+        a = findPar(a);
+        b = findPar(b);
+        if(a!=b){
+            if(sz[a]<sz[b])swap(a,b);
+            par[b]=a;
+            sz[a] += sz[b];
+            return 1;
+        }
+        return 0;
+    }
+
+};

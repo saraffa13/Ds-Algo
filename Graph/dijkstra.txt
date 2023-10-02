@@ -24,3 +24,29 @@ void dijkstra(int u){
         s.erase(s.begin());
     }
 }
+
+
+void dijkstra(int v){
+
+    dist[v]=0;
+    priority_queue<pii, vii, greater<pii>>pq;
+
+    pq.push({0,v});
+
+    while(!pq.empty()){
+        int par=pq.top().second;
+        int c_d= pq.top().first;
+        pq.pop();
+
+        if(c_d!=dist[par])continue;
+
+        for(pii &ch:edges[par]){
+            if(dist[ch.first]>c_d+ch.second){
+                dist[ch.first]=c_d+ch.second;
+                pq.push({dist[ch.first],ch.first});
+            }
+        }
+
+    }
+
+}

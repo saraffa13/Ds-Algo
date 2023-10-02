@@ -4,3 +4,9 @@ tree - number of components = 1
 
        shortest path mtlb  BFS
        
+
+Concepts - 
+       1.forceful path construction -  make directed edges 
+              http://www.usaco.org/index.php?page=viewproblem2&cpid=861
+
+       
