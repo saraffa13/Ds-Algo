@@ -40,12 +40,6 @@ return res;
 
 Type 2 :TOPOSORT
 
-vector<int>ind(n);
-vector<vector<int>>edges(n);
-for(int i=0;i<arr.size();i++){
-    edges[arr[i][1]].push_back(arr[i][0]);
-    ind[arr[i][0]]++;
-}
 queue<int>q;
 for(int i=0;i<n;i++){
     if(ind[i]==0)q.push(i);
@@ -64,19 +58,33 @@ if(res.size() != n)res.clear();
 return res;
 
 
+======================================================================================================
 
-void bfs(int v){
-    queue<int>q;
-    for(int i=1;i<=n;i++){
-        if(indegree[i] == 0)q.push(i);
-    }
-
-    while(!q.empty()){
-        int f = q.front();q.pop();
-        res.push_back(f);
-        for(auto x:edges[f]){
-            indegree[x]--;
-            if(indegree[x] == 0)q.push(x);
+vector<int>ans;
+void dfs(int v){
+    vis[v]=1;
+    for(int ch:edges[v]){
+        if(!vis[ch]){
+            dfs(ch);
+        }else if(vis[ch]==1){
+            ok = 1;
         }
+    }
+    vis[v]=2;
+    ans.push_back(v);
+}
+
+int main (){
+    for(int i=0;i<n;i++){
+        if(!vis[i]){
+            dfs(i);
+        }
+    }
+    if(ok){
+        cout<<"Contains cycle "<<endl;
+        
+    }else{
+        reverse(ans.begin(),ans.end());
+        vprint (ans);
     }
 }
